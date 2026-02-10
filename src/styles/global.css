@@ -3,14 +3,16 @@
 @theme {
   --color-primary: #1a1a6e;
   --color-primary-light: #3b3ba8;
-  --color-accent: #6c63ff;
-  --color-accent-light: #c4b5fd;
-  --color-bg-hero: #f0eeff;
-  --color-bg-purple: #d8d0f8;
+  --color-accent: #8b7fc8;
+  --color-accent-light: #b8a9e0;
+  --color-bg-hero: #f5f3ff;
+  --color-bg-purple: #e8e0f5;
+  --color-header-purple: #a89bc8;
   --color-text-dark: #1a1a2e;
   --color-text-muted: #6b7280;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
+
 }
 
 @layer base {
@@ -22,43 +24,89 @@
     font-family: var(--font-sans);
     color: var(--color-text-dark);
     overflow-x: hidden;
+    background-color: #dcdcdc;
   }
 }
 
 /* Glassmorphism navbar */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 /* True glassmorphism for cards */
 .glass-card {
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    0 8px 32px rgba(100, 80, 160, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(100, 80, 160, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.25);
+}
+.glass-card h3,
+.glass-card .text-text-dark {
+  color: #0f172a;
+  font-weight: 600;
+}
+.glass-card p,
+.glass-card .text-text-muted {
+  color: #475569;
+}
+.glass-card .text-2xl,
+.glass-card .text-xl {
+  color: #0f172a;
+  font-weight: 700;
 }
 
-/* True glassmorphism for M badge circle */
+/* Glassmorphism cards over image - white text */
+.glass-card-over-image {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  color: #ffffff;
+}
+.glass-card-over-image:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.25);
+}
+.glass-card-over-image h3,
+.glass-card-over-image .text-text-dark,
+.glass-card-over-image .text-2xl,
+.glass-card-over-image .text-xl {
+  color: #ffffff;
+  font-weight: 600;
+}
+.glass-card-over-image p,
+.glass-card-over-image .text-text-muted {
+  color: rgba(255, 255, 255, 0.9);
+}
+.glass-card-over-image a {
+  color: #ffffff;
+}
+.glass-card-over-image a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.glass-card-over-image svg {
+  stroke: #ffffff;
+}
+
+/* True glassmorphism for badge circle */
 .glass-circle {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 8px 32px rgba(100, 80, 160, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
