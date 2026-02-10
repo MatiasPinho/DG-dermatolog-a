@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Servicios from "./Servicios.astro";
 ---
 
 <Layout>
@@ -7,27 +8,112 @@ import Layout from '../layouts/Layout.astro';
   <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-6">
     <div class="glass-nav flex items-center gap-1 px-2 py-2 rounded-full">
       <!-- Logo -->
-      <a href="/" class="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full mr-2 group shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" class="transition-transform group-hover:rotate-45 duration-500">
-          <circle cx="16" cy="16" r="3" fill="#3b3ba8"/>
-          <line x1="16" y1="4" x2="16" y2="12" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="16" y1="20" x2="16" y2="28" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="4" y1="16" x2="12" y2="16" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="20" y1="16" x2="28" y2="16" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="7.5" y1="7.5" x2="12.5" y2="12.5" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="19.5" y1="19.5" x2="24.5" y2="24.5" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="7.5" y1="24.5" x2="12.5" y2="19.5" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="19.5" y1="12.5" x2="24.5" y2="7.5" stroke="#3b3ba8" stroke-width="2.5" stroke-linecap="round"/>
+      <a
+        href="/"
+        class="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full mr-2 group shrink-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 32 32"
+          fill="none"
+          class="transition-transform group-hover:rotate-45 duration-500"
+        >
+          <circle cx="16" cy="16" r="3" fill="#3b3ba8"></circle>
+          <line
+            x1="16"
+            y1="4"
+            x2="16"
+            y2="12"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="16"
+            y1="20"
+            x2="16"
+            y2="28"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="4"
+            y1="16"
+            x2="12"
+            y2="16"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="20"
+            y1="16"
+            x2="28"
+            y2="16"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="7.5"
+            y1="7.5"
+            x2="12.5"
+            y2="12.5"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="19.5"
+            y1="19.5"
+            x2="24.5"
+            y2="24.5"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="7.5"
+            y1="24.5"
+            x2="12.5"
+            y2="19.5"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
+          <line
+            x1="19.5"
+            y1="12.5"
+            x2="24.5"
+            y2="7.5"
+            stroke="#3b3ba8"
+            stroke-width="2.5"
+            stroke-linecap="round"></line>
         </svg>
       </a>
 
       <!-- Nav links -->
       <div class="hidden md:flex items-center">
-        <a href="#" class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors">Dermatología Clínica</a>
-        <a href="#" class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors">Dermatología Estética</a>
-        <a href="#" class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors">Aparatología</a>
-        <a href="#" class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors">Cosmiatría</a>
-        <a href="#" class="inline-flex items-center bg-primary text-white pl-5 pr-1 py-1 rounded-full text-sm font-medium hover:bg-primary-light transition-all duration-300 group">
+        <a
+          href="#"
+          class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors"
+          >Dermatología Clínica</a
+        >
+        <a
+          href="#"
+          class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors"
+          >Dermatología Estética</a
+        >
+        <a
+          href="#"
+          class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors"
+          >Aparatología</a
+        >
+        <a
+          href="#"
+          class="text-sm font-medium text-text-dark hover:text-primary px-4 py-2 rounded-full transition-colors"
+          >Cosmiatría</a
+        >
+        <a
+          href="#"
+          class="inline-flex items-center bg-primary text-white pl-5 pr-1 py-1 rounded-full text-sm font-medium hover:bg-primary-light transition-all duration-300 group"
+        >
           <span class="mr-2">Contacto</span>
           <span class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -185,70 +271,96 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <Servicios />
+
   <!-- GSAP Animations -->
   <script>
-    import { gsap } from 'gsap';
+    import { gsap } from "gsap";
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       // Main timeline
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       // Hero image fade in
-      tl.to('#hero-image', {
+      tl.to("#hero-image", {
         opacity: 1,
         duration: 1.2,
         delay: 0.2,
       });
 
       // Badge
-      tl.to('#hero-badge', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-      }, '-=0.8');
+      tl.to(
+        "#hero-badge",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+        },
+        "-=0.8",
+      );
 
       // Heading
-      tl.to('#hero-heading', {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-      }, '-=0.5');
+      tl.to(
+        "#hero-heading",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+        },
+        "-=0.5",
+      );
 
       // Subtitle
-      tl.to('#hero-sub', {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-      }, '-=0.4');
+      tl.to(
+        "#hero-sub",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+        },
+        "-=0.4",
+      );
 
       // CTA button
-      tl.to('#hero-cta', {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-      }, '-=0.5');
+      tl.to(
+        "#hero-cta",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+        },
+        "-=0.5",
+      );
 
       // Rotating badge
-      tl.to('#hero-badge-circle', {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-      }, '-=0.6');
+      tl.to(
+        "#hero-badge-circle",
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+        },
+        "-=0.6",
+      );
 
       // Cards stagger animation
-      tl.to('.card-item', {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.15,
-      }, '-=0.3');
+      tl.to(
+        ".card-item",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.15,
+        },
+        "-=0.3",
+      );
 
       // Navbar subtle entrance
-      gsap.from('nav', {
+      gsap.from("nav", {
         y: -20,
         opacity: 0,
         duration: 0.8,
-        ease: 'power2.out',
+        ease: "power2.out",
         delay: 0.1,
       });
     });
@@ -256,8 +368,12 @@ import Layout from '../layouts/Layout.astro';
 
   <style is:global>
     @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
     .animate-spin-slow {
       animation: spin-slow 20s linear infinite;
