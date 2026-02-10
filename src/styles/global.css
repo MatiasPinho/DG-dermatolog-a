@@ -15,6 +15,8 @@
 
 }
 
+/* test */
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -46,20 +48,24 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
+
 .glass-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.25);
 }
+
 .glass-card h3,
 .glass-card .text-text-dark {
   color: #0f172a;
   font-weight: 600;
 }
+
 .glass-card p,
 .glass-card .text-text-muted {
   color: #475569;
 }
+
 .glass-card .text-2xl,
 .glass-card .text-xl {
   color: #0f172a;
@@ -76,11 +82,13 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   color: #ffffff;
 }
+
 .glass-card-over-image:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.25);
 }
+
 .glass-card-over-image h3,
 .glass-card-over-image .text-text-dark,
 .glass-card-over-image .text-2xl,
@@ -88,16 +96,20 @@
   color: #ffffff;
   font-weight: 600;
 }
+
 .glass-card-over-image p,
 .glass-card-over-image .text-text-muted {
   color: rgba(255, 255, 255, 0.9);
 }
+
 .glass-card-over-image a {
   color: #ffffff;
 }
+
 .glass-card-over-image a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
+
 .glass-card-over-image svg {
   stroke: #ffffff;
 }
