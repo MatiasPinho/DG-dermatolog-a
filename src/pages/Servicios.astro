@@ -167,16 +167,28 @@ import ServiceCard from "../components/ServiceCard.astro";
    }
   }
 
-  /* Prevenir desborde horizontal en mobile - NO afecta desktop */
+  /* Prevenir desborde horizontal y scroll doble en mobile - NO afecta desktop */
   @media (max-width: 768px) {
-   section {
-    overflow-x: hidden;
+   /* Contenedor principal sin overflow que cause scroll doble */
+   section:first-of-type {
+    overflow-x: clip;
+    overflow-y: visible;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+   }
+
+   /* Contenedor interno */
+   section:first-of-type > div {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
    }
 
    .servicios-heading {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
    }
 
    .servicios-title {
@@ -196,12 +208,14 @@ import ServiceCard from "../components/ServiceCard.astro";
    .servicios-grid {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
    }
 
    .servicios-grid > * {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
    }
   }
  </style>
