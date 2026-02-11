@@ -1200,6 +1200,30 @@ import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
  </script>
 
  <style is:global>
-  /* Removed CSS animation - now handled by GSAP for better performance */
+  /* Ajustes responsive específicos para la hero en mobile
+     (no afectan desktop gracias a la media query) */
+  @media (max-width: 768px) {
+   /* Imagen de hero en flujo normal, debajo del texto, a todo el ancho */
+   #hero-image {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    width: 100%;
+    height: 260px;
+    margin-top: 1.5rem;
+   }
+
+   /* Asegurar que la imagen se vea bien centrada en mobile */
+   #hero-image .hero-slide img {
+    object-position: center top;
+   }
+
+   /* Pequeño ajuste de padding para que el contenido respire mejor en pantallas muy chicas */
+   section.px-4.md\:px-6.pt-4.pb-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+   }
+  }
  </style>
 </Layout>

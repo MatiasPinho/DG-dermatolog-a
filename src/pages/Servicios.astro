@@ -13,16 +13,18 @@ import ServiceCard from "../components/ServiceCard.astro";
 ---
 
 <Layout>
- <section class="w-full flex flex-col items-center py-24">
-  <div class="flex flex-col items-center gap-y-6 servicios-heading">
-   <h1 class="text-6xl font-bold text-center servicios-title">
-    Planes de tratamiento <br />Personalizados
+ <section class="w-full flex flex-col items-center py-24 px-4 md:px-6 overflow-x-hidden">
+  <div class="flex flex-col items-center gap-y-6 servicios-heading w-full max-w-full">
+   <h1
+    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight servicios-title break-words px-2"
+   >
+    Planes de tratamiento <br class="hidden md:block" />Personalizados
    </h1>
-   <p class="text-lg servicios-description">
+   <p class="text-lg servicios-description text-center px-2">
     Cada plan es personalizado y nuestra atención incluye
    </p>
   </div>
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 servicios-grid">
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 servicios-grid w-full max-w-full">
    <ServiceCard
     img="/woman-cosmetologist-having-beauty-treatment.webp"
     title="Revisión médica completa"
@@ -166,5 +168,34 @@ import ServiceCard from "../components/ServiceCard.astro";
    }
   });
  </script>
+
+ <style>
+  /* Prevenir desborde horizontal en mobile */
+  @media (max-width: 768px) {
+   .servicios-heading {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+   }
+
+   .servicios-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+   }
+
+   .servicios-grid {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+   }
+
+   .servicios-grid > * {
+    max-width: 100%;
+    overflow-x: hidden;
+   }
+  }
+ </style>
 </Layout>
 
