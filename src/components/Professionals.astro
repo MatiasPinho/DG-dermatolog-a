@@ -15,7 +15,7 @@ const professionals = [
             { label: "Tratamientos", value: "12k+" },
             { label: "Valoración", value: "4.9/5" },
         ],
-        image: "/woman-cosmetologist-having-beauty-treatment.jpg",
+        image: "/woman-cosmetologist-having-beauty-treatment.webp",
     },
     {
         name: "Dr. Juan Pérez",
@@ -30,7 +30,7 @@ const professionals = [
             { label: "Éxito", value: "99%" },
             { label: "Valoración", value: "5.0/5" },
         ],
-        image: "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.jpg",
+        image: "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
     },
     {
         name: "Dra. Laura Fernández",
@@ -45,7 +45,7 @@ const professionals = [
             { label: "Retorno", value: "95%" },
             { label: "Valoración", value: "4.8/5" },
         ],
-        image: "/woman-cosmetologist-having-beauty-treatment.jpg",
+        image: "/woman-cosmetologist-having-beauty-treatment.webp",
     },
     {
         name: "Dr. Carlos Ruiz",
@@ -60,7 +60,7 @@ const professionals = [
             { label: "Precisión", value: "99.9%" },
             { label: "Valoración", value: "4.9/5" },
         ],
-        image: "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.jpg",
+        image: "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
     },
 ];
 ---
@@ -91,7 +91,7 @@ const professionals = [
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {
                 professionals.map((prof) => (
-                    <div class="glass-card prof-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group bg-white/40">
+                    <div class="glass-card prof-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-500 ease-out flex flex-col justify-between group bg-white/40">
                         <div class="flex flex-col-reverse sm:flex-row gap-6 mb-8">
                             <div class="flex-1 flex flex-col justify-center">
                                 <h3 class="text-2xl font-bold text-gray-900 mb-1">
@@ -114,9 +114,9 @@ const professionals = [
                                     ))}
                                 </div>
 
-                                <button class="self-start inline-flex items-center bg-primary text-white pl-5 pr-1 py-1 rounded-full text-sm font-medium hover:bg-primary-light transition-all duration-300 group">
+                                <button class="self-start inline-flex items-center bg-primary text-white pl-5 pr-1 py-1 rounded-full text-sm font-medium hover:bg-primary-light transition-colors duration-500 ease-out group">
                                     <span class="mr-2">Ver Perfil</span>
-                                    <span class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                                    <span class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center shrink-0 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                                         <ArrowRight class="w-4 h-4 text-white" />
                                     </span>
                                 </button>
@@ -126,14 +126,18 @@ const professionals = [
                                 <img
                                     src={prof.image}
                                     alt={prof.name}
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="192"
+                                    height="192"
                                 />
                             </div>
                         </div>
 
                         <div class="pt-6 grid grid-cols-3 gap-4">
                             {prof.stats.map((stat) => (
-                                <div class="glass-nav rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-white/60">
+                                <div class="glass-nav rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-colors duration-500 ease-out hover:bg-white/60">
                                     <p class="text-xs text-text-muted uppercase tracking-wider font-medium mb-1">
                                         {stat.label}
                                     </p>
