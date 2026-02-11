@@ -1,0 +1,245 @@
+---
+// Componente de slider antes/después
+const beforeAfterImages = [
+ {
+  before:
+   "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
+  after: "/woman-cosmetologist-having-beauty-treatment.webp",
+  title: "Tratamiento Facial",
+  description:
+   "Resultados visibles después de nuestro tratamiento especializado",
+  methods: ["Láser CO2", "Peeling Químico", "Toxina Botulínica"],
+ },
+ {
+  before:
+   "/client-beautician-s-appointment-consultation-face-shaping-preparation-upcoming-procedures-visual-examination-problem-areas.webp",
+  after:
+   "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
+  title: "Rejuvenecimiento",
+  description: "Transformación completa con tecnología de última generación",
+  methods: ["Plasma Rico en Plaquetas", "Hilos Tensores", "Rellenos Dérmicos"],
+ },
+];
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+ <div class="max-w-7xl mx-auto relative z-10">
+  <!-- Heading -->
+  <div class="mb-16 text-center before-after-heading">
+   <h2
+    class="text-5xl md:text-6xl lg:text-7xl font-semibold text-text-dark leading-[0.95] mb-5"
+    style="font-family: var(--font-sans);"
+   >
+    Resultados <em
+     class="not-italic font-semibold text-primary"
+     style="font-family: var(--font-serif); font-style: italic;"
+    >
+     Antes y Después
+    </em>
+   </h2>
+   <p class="text-lg md:text-xl text-text-muted mb-12 max-w-2xl mx-auto">
+    Descubra la transformación real de nuestros pacientes con tratamientos
+    dermatológicos profesionales.
+   </p>
+  </div>
+
+  <!-- Before/After Sliders -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+   {
+    beforeAfterImages.slice(0, 2).map((item, index) => (
+     <div
+      class="before-after-item glass-card rounded-3xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-500 ease-out overflow-hidden"
+      data-index={index}
+     >
+      <div class="mb-4">
+       <h3 class="text-2xl font-bold text-text-dark mb-2">{item.title}</h3>
+       <p class="text-text-muted text-sm">{item.description}</p>
+      </div>
+
+      <div
+       class="before-after-slider relative rounded-2xl overflow-hidden bg-gray-100 cursor-col-resize select-none"
+       style="aspect-ratio: 4/3;"
+      >
+       <div class="absolute inset-0">
+        <img
+         src={item.after}
+         alt={`${item.title} - Después`}
+         class="w-full h-full object-cover"
+         loading="lazy"
+         decoding="async"
+        />
+       </div>
+
+       <div
+        class="before-image-container absolute inset-0 overflow-hidden"
+        style="clip-path: inset(0 50% 0 0);"
+       >
+        <img
+         src={item.before}
+         alt={`${item.title} - Antes`}
+         class="w-full h-full object-cover"
+         loading="lazy"
+         decoding="async"
+        />
+       </div>
+
+       <div
+        class="slider-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
+        style="left: 50%; transform: translateX(-50%);"
+       >
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
+         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-primary"
+         >
+          <polyline points="9 18 15 12 9 6" />
+         </svg>
+         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-primary -ml-2"
+         >
+          <polyline points="15 18 9 12 15 6" />
+         </svg>
+        </div>
+       </div>
+
+       <div class="absolute top-4 left-4 bg-primary/90 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+        Antes
+       </div>
+       <div class="absolute top-4 right-4 bg-primary/90 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+        Después
+       </div>
+
+       <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 z-20">
+        {item.methods.map((method) => (
+         <div class="method-badge glass-card-over-image px-3 py-1.5 rounded-full text-xs md:text-sm font-medium text-white backdrop-blur-md">
+          {method}
+         </div>
+        ))}
+       </div>
+      </div>
+     </div>
+    ))
+   }
+  </div>
+ </div>
+</section>
+
+<script>
+ // Inicializar sliders de antes/después con efecto hover
+ const sliders = document.querySelectorAll(".before-after-slider");
+
+ sliders.forEach((slider) => {
+  const handle = slider.querySelector(".slider-handle") as HTMLElement;
+  const beforeImage = slider.querySelector(
+   ".before-image-container"
+  ) as HTMLElement;
+
+  // Función para actualizar la posición del slider
+  const setTranslate = (xPos: number) => {
+   const sliderRect = slider.getBoundingClientRect();
+   const maxX = sliderRect.width;
+   const clampedX = Math.max(0, Math.min(maxX, xPos));
+   const percentage = (clampedX / maxX) * 100;
+
+   // Actualizar posición del handle
+   handle.style.left = `${percentage}%`;
+
+   // Actualizar clip-path de la imagen antes
+   beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+  };
+
+  // Evento mousemove para seguir el cursor
+  const handleMouseMove = (e: MouseEvent) => {
+   const sliderRect = slider.getBoundingClientRect();
+   const x = e.clientX - sliderRect.left;
+   setTranslate(x);
+  };
+
+  // Evento touchmove para dispositivos táctiles
+  const handleTouchMove = (e: TouchEvent) => {
+   e.preventDefault();
+   const sliderRect = slider.getBoundingClientRect();
+   const x = e.touches[0].clientX - sliderRect.left;
+   setTranslate(x);
+  };
+
+  // Agregar event listeners
+  slider.addEventListener("mousemove", handleMouseMove);
+  slider.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+  // Resetear al salir del slider (opcional - puedes comentar esto si quieres que mantenga la posición)
+  slider.addEventListener("mouseleave", () => {
+   // Opcional: volver al centro al salir
+   // setTranslate(slider.getBoundingClientRect().width / 2);
+  });
+
+  // Inicializar en el centro
+  setTranslate(slider.getBoundingClientRect().width / 2);
+ });
+</script>
+
+<style>
+ .before-after-slider {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+ }
+
+ .slider-handle {
+  transition: transform 0.1s ease-out;
+ }
+
+ .slider-handle:hover {
+  transform: translateX(-50%) scale(1.1);
+ }
+
+ .before-after-slider:active .slider-handle {
+  transform: translateX(-50%) scale(1.15);
+ }
+
+ .before-image-container {
+  transition: clip-path 0.05s ease-out;
+ }
+
+ .before-image-container img {
+  width: calc(100% * 2);
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+ }
+
+ .method-badge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  transform: translateZ(0);
+ }
+
+ .method-badge:hover {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px) translateZ(0);
+ }
+</style>

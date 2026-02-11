@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Servicios from "./Servicios.astro";
 import Professionals from "../components/Professionals.astro";
+import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
 ---
 
 <Layout>
@@ -259,7 +260,9 @@ import Professionals from "../components/Professionals.astro";
           <p class="text-xs text-text-muted mb-1.5 leading-tight">
            Tratamientos<br />realizados
           </p>
-          <p class="text-2xl md:text-3xl font-bold text-text-dark leading-none">5,000+</p>
+          <p class="text-2xl md:text-3xl font-bold text-text-dark leading-none">
+           5,000+
+          </p>
           <p class="text-[10px] md:text-xs text-text-muted mt-2">
            Con tecnología de última generación
           </p>
@@ -406,6 +409,7 @@ import Professionals from "../components/Professionals.astro";
 
  <Servicios />
  <Professionals />
+ <BeforeAfterSlider />
 
  <script>
   import { gsap } from "gsap";
@@ -437,6 +441,10 @@ import Professionals from "../components/Professionals.astro";
    const nav = document.querySelector("nav");
    const profHeading = document.querySelector(".professionals-heading");
    const profCards = gsap.utils.toArray(".prof-card") as HTMLElement[];
+   const beforeAfterHeading = document.querySelector(".before-after-heading");
+   const beforeAfterItems = gsap.utils.toArray(
+    ".before-after-item"
+   ) as HTMLElement[];
    const rotatingSvg = heroBadgeCircle?.querySelector("svg");
 
    // All hero elements to animate (excluding heroImage which has its own animation)
@@ -1108,6 +1116,140 @@ import Professionals from "../components/Professionals.astro";
      });
     }
    });
+
+   // Before/After section - premium reveal animations
+   if (beforeAfterHeading) {
+    const headingText = beforeAfterHeading.querySelector("h2");
+    const headingP = beforeAfterHeading.querySelector("p");
+
+    (beforeAfterHeading as HTMLElement).style.willChange = "transform, opacity";
+
+    // Animate heading text with clip-path reveal
+    if (headingText) {
+     gsap.set(headingText, {
+      opacity: 0,
+      y: 40,
+      clipPath: "inset(0 0 100% 0)",
+      force3D: true,
+     });
+     gsap.to(headingText, {
+      opacity: 1,
+      y: 0,
+      clipPath: "inset(0 0 0% 0)",
+      duration: 1.0,
+      ease: "expo.out",
+      force3D: true,
+      scrollTrigger: {
+       trigger: beforeAfterHeading,
+       start: "top 85%",
+       toggleActions: "play none none none",
+      },
+     });
+    }
+
+    // Animate paragraph with blur effect
+    if (headingP) {
+     gsap.set(headingP, {
+      opacity: 0,
+      y: 20,
+      filter: "blur(8px)",
+      force3D: true,
+     });
+     gsap.to(headingP, {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 0.9,
+      ease: "power2.out",
+      force3D: true,
+      scrollTrigger: {
+       trigger: beforeAfterHeading,
+       start: "top 85%",
+       toggleActions: "play none none none",
+      },
+     });
+    }
+   }
+
+   // Before/After items - premium staggered reveal
+   if (beforeAfterItems.length > 0) {
+    beforeAfterItems.forEach((item, index) => {
+     const itemSlider = item.querySelector(".before-after-slider");
+     const itemContent = item.querySelector("div:first-child");
+
+     (item as HTMLElement).style.willChange = "transform, opacity";
+
+     gsap.set(item, {
+      opacity: 0,
+      y: 60,
+      rotationY: -10,
+      transformPerspective: 1200,
+      force3D: true,
+     });
+
+     // Main item animation
+     gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      rotationY: 0,
+      duration: 1.0,
+      ease: "power3.out",
+      force3D: true,
+      scrollTrigger: {
+       trigger: item,
+       start: "top 85%",
+       toggleActions: "play none none none",
+      },
+     });
+
+     // Slider reveal with scale
+     if (itemSlider) {
+      gsap.fromTo(
+       itemSlider,
+       {
+        scale: 0.95,
+        opacity: 0,
+       },
+       {
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: "expo.out",
+        scrollTrigger: {
+         trigger: item,
+         start: "top 85%",
+         toggleActions: "play none none none",
+        },
+        onComplete: () => {
+         // Animate method badges after slider appears
+         const methodBadges = item.querySelectorAll(
+          ".method-badge"
+         ) as NodeListOf<HTMLElement>;
+         if (methodBadges.length > 0) {
+          methodBadges.forEach((badge, badgeIndex) => {
+           gsap.set(badge, {
+            opacity: 0,
+            y: 20,
+            scale: 0.8,
+            force3D: true,
+           });
+           gsap.to(badge, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: "power2.out",
+            delay: badgeIndex * 0.1,
+            force3D: true,
+           });
+          });
+         }
+        },
+       }
+      );
+     }
+    });
+   }
 
    // Global ScrollTrigger config - optimized
    ScrollTrigger.config({
