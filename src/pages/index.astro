@@ -622,7 +622,10 @@ import Professionals from "../components/Professionals.astro";
 
         // Secondary parallax on badge circle for depth
         if (heroBadgeCircle) {
-          gsap.to(heroBadgeCircle, {
+          gsap.fromTo(heroBadgeCircle, {
+            yPercent: 0,
+            scale: 1,
+          }, {
             yPercent: -15,
             scale: 0.95,
             ease: "none",
@@ -632,6 +635,7 @@ import Professionals from "../components/Professionals.astro";
               start: "top top",
               end: "bottom top",
               scrub: 1.5,
+              invalidateOnRefresh: true,
             },
           });
         }
