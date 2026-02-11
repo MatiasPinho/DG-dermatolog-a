@@ -1,24 +1,50 @@
 ---
-import { ArrowRight } from "@lucide/astro";
+import { ArrowRight, Star } from "@lucide/astro";
 
 interface Props {
  title: string;
  linkText?: string;
- icon: any; // Type for Astro component/Lucide icon
+ description?: string;
+ img: string;
 }
 
-const { title, linkText = "Ver mas", icon: Icon } = Astro.props;
+const { title, linkText = "Ver mas", description, img } = Astro.props;
 ---
 
-<div
- class="w-lg h-auto bg-white-500 transition-colors p-6 rounded-2xl flex flex-col gap-y-18 shadow-md hover:shadow-xl hover:bg-[#1a1a6e] transition-all duration-300 translate-y-[100px] group"
+<article
+ class="w-lg h-auto bg-white-500 p-6 rounded-2xl flex flex-col gap-y-10 shadow-md hover:shadow-xl transition-all duration-300 translate-y-[100px] group"
 >
- <div>
-  <Icon size={46} class="group-hover:text-white" />
- </div>
- <h1 class="text-text-dark group-hover:text-white">{title}</h1>
- <div class="flex items-center gap-x-2 justify-end">
-  <p class="text-text-dark group-hover:text-white">{linkText}</p>
-  <ArrowRight class="group-hover:text-white" />
- </div>
-</div>
+ <header class="flex flex-col gap-y-8">
+  <h1 class="text-primary text-2xl font-bold">{title}</h1>
+  <content class="w-full h-56 overflow-hidden rounded-xl">
+    <img src={img} alt={title} class="w-full h-full object-cover" />
+   </content>
+  <p class=" text-sm">{description}</p>
+ </header>
+ <section class="flex gap-x-2 justify-end absolute top-[55%] left-8 z-10">
+  <button class="glass-nav flex items-center gap-1 px-2 py-2 rounded-full">
+   <p class="text-primary text-xs">+50 Casos</p>
+  </button>
+  <button class="glass-nav flex items-center gap-1 px-2 py-2 rounded-full">
+   <p class="text-primary text-xs">100% Rendimiento</p>
+  </button>
+  <button class="glass-nav flex items-center gap-1 px-2 py-2 rounded-full">
+   <p class="text-primary text-xs flex">
+    <Star size={16} fill="currentColor" /><Star
+     size={16}
+     fill="currentColor"
+    /><Star size={16} fill="currentColor" />
+   </p>
+  </button>
+ </section>
+ 
+ <footer class="flex justify-end gap-x-2 w-full items-end">
+  <a
+   href="#"
+   class="flex items-center justify-end gap-x-2 p-2"
+  >
+   <p class="text-primary text-sm">{linkText}</p>
+   <ArrowRight size={16}  class="text-primary" />
+  </a>
+ </footer>
+</article>
