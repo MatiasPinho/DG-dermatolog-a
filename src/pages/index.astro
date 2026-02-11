@@ -173,7 +173,11 @@ import Professionals from "../components/Professionals.astro";
          class="not-italic font-semibold text-primary"
          style="font-family: var(--font-serif); font-style: italic;"
         >
-         <span class="letter">e</span><span class="letter">s</span><span class="letter">t</span><span class="letter">é</span><span class="letter">t</span><span class="letter">i</span><span class="letter">c</span><span class="letter">a</span>
+         <span class="letter">e</span><span class="letter">s</span><span
+          class="letter">t</span
+         ><span class="letter">é</span><span class="letter">t</span><span
+          class="letter">i</span
+         ><span class="letter">c</span><span class="letter">a</span>
         </em>
        </h1>
        <!-- Subtitle -->
@@ -300,100 +304,121 @@ import Professionals from "../components/Professionals.astro";
      </div>
     </div>
    </div>
-    <!-- Hero background image carousel -->
-    <div
-     id="hero-image"
-     class="absolute top-0 right-0 w-1/2 h-full overflow-hidden rounded-3xl"
-    >
-     <!-- Image container with multiple images -->
-     <div id="hero-images-container" class="relative w-full h-full">
-      <!-- Image 1 -->
-      <div class="hero-slide absolute inset-0 opacity-100" data-slide="0">
-       <img
-        src="/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp"
-        alt="Woman checking her skin after cosmetic treatment"
-        class="w-full h-full object-cover object-center rounded-3xl"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-       />
-      </div>
-      <!-- Image 2 -->
-      <div class="hero-slide absolute inset-0 opacity-0" data-slide="1">
-       <img
-        src="/woman-cosmetologist-having-beauty-treatment.webp"
-        alt="Woman cosmetologist having beauty treatment"
-        class="w-full h-full object-cover object-center rounded-3xl"
-        loading="lazy"
-        decoding="async"
-       />
-      </div>
-      <!-- Image 3 -->
-      <div class="hero-slide absolute inset-0 opacity-0" data-slide="2">
-       <img
-        src="/client-beautician-s-appointment-consultation-face-shaping-preparation-upcoming-procedures-visual-examination-problem-areas.webp"
-        alt="Client consultation and skin examination"
-        class="w-full h-full object-cover object-center rounded-3xl"
-        loading="lazy"
-        decoding="async"
-       />
-      </div>
+   <!-- Hero background image carousel -->
+   <div
+    id="hero-image"
+    class="absolute top-0 right-0 w-1/2 h-full overflow-hidden rounded-3xl"
+   >
+    <!-- Image container with multiple images -->
+    <div id="hero-images-container" class="relative w-full h-full">
+     <!-- Image 1 -->
+     <div class="hero-slide absolute inset-0 opacity-100" data-slide="0">
+      <img
+       src="/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp"
+       alt="Woman checking her skin after cosmetic treatment"
+       class="w-full h-full object-cover object-center rounded-3xl"
+       loading="eager"
+       decoding="async"
+       fetchpriority="high"
+      />
      </div>
-     <!-- DG badge over image -->
-     <div class="absolute inset-0 flex items-center justify-center z-10">
-      <div id="hero-badge-circle" class="relative w-44 h-44 md:w-52 md:h-52">
-       <div class="glass-circle absolute inset-2 rounded-full"></div>
-       <!-- Rotating text — will be animated by GSAP for better performance -->
-       <svg
-        viewBox="0 0 200 200"
-        class="w-full h-full relative z-10"
-        style="will-change: transform; transform: translateZ(0);"
-       >
-        <defs>
-         <path
-          id="circlePath"
-          d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"></path>
-        </defs>
-        <text
-         font-size="11.5"
-         fill="#1a1a6e"
-         font-weight="500"
-         letter-spacing="3.5"
-        >
-         <textPath href="#circlePath">
-          DG DERMOESTÉTICA | DERMATOLOGÍA Y ESTÉTICA |
-         </textPath>
-        </text>
-       </svg>
-       <!-- Center DG -->
-       <div class="absolute inset-0 flex items-center justify-center z-20">
-        <div
-         class="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border border-white/50"
-        >
-         <span
-          class="text-xl md:text-2xl font-bold text-primary"
-          style="font-family: var(--font-serif);">DG</span
-         >
-        </div>
-       </div>
-      </div>
+     <!-- Image 2 -->
+     <div class="hero-slide absolute inset-0 opacity-0" data-slide="1">
+      <img
+       src="/woman-cosmetologist-having-beauty-treatment.webp"
+       alt="Woman cosmetologist having beauty treatment"
+       class="w-full h-full object-cover object-center rounded-3xl"
+       loading="lazy"
+       decoding="async"
+      />
      </div>
-      <!-- Image carousel indicators -->
-      <div
-       id="hero-carousel-indicators"
-       class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4"
-      >
-       <div class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator" data-indicator="0">
-        <div class="hero-indicator-progress absolute inset-0 bg-white rounded-full" style="transform: scaleX(0); transform-origin: left center;"></div>
-       </div>
-       <div class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator" data-indicator="1">
-        <div class="hero-indicator-progress absolute inset-0 bg-white rounded-full" style="transform: scaleX(0); transform-origin: left center;"></div>
-       </div>
-       <div class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator" data-indicator="2">
-        <div class="hero-indicator-progress absolute inset-0 bg-white rounded-full" style="transform: scaleX(0); transform-origin: left center;"></div>
-       </div>
-      </div>
+     <!-- Image 3 -->
+     <div class="hero-slide absolute inset-0 opacity-0" data-slide="2">
+      <img
+       src="/client-beautician-s-appointment-consultation-face-shaping-preparation-upcoming-procedures-visual-examination-problem-areas.webp"
+       alt="Client consultation and skin examination"
+       class="w-full h-full object-cover object-center rounded-3xl"
+       loading="lazy"
+       decoding="async"
+      />
+     </div>
     </div>
+    <!-- DG badge over image -->
+    <div class="absolute inset-0 flex items-center justify-center z-10">
+     <div id="hero-badge-circle" class="relative w-44 h-44 md:w-52 md:h-52">
+      <div class="glass-circle absolute inset-2 rounded-full"></div>
+      <!-- Rotating text — will be animated by GSAP for better performance -->
+      <svg
+       viewBox="0 0 200 200"
+       class="w-full h-full relative z-10"
+       style="will-change: transform; transform: translateZ(0);"
+      >
+       <defs>
+        <path
+         id="circlePath"
+         d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"></path>
+       </defs>
+       <text
+        font-size="11.5"
+        fill="#1a1a6e"
+        font-weight="500"
+        letter-spacing="3.5"
+       >
+        <textPath href="#circlePath">
+         DG DERMOESTÉTICA | DERMATOLOGÍA Y ESTÉTICA |
+        </textPath>
+       </text>
+      </svg>
+      <!-- Center DG -->
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+       <div
+        class="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border border-white/50"
+       >
+        <span
+         class="text-xl md:text-2xl font-bold text-primary"
+         style="font-family: var(--font-serif);">DG</span
+        >
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Image carousel indicators -->
+    <div
+     id="hero-carousel-indicators"
+     class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4"
+    >
+     <div
+      class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator"
+      data-indicator="0"
+     >
+      <div
+       class="hero-indicator-progress absolute inset-0 bg-white rounded-full"
+       style="transform: scaleX(0); transform-origin: left center;"
+      >
+      </div>
+     </div>
+     <div
+      class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator"
+      data-indicator="1"
+     >
+      <div
+       class="hero-indicator-progress absolute inset-0 bg-white rounded-full"
+       style="transform: scaleX(0); transform-origin: left center;"
+      >
+      </div>
+     </div>
+     <div
+      class="hero-indicator h-1 rounded-full w-32 md:w-40 relative overflow-hidden glass-indicator"
+      data-indicator="2"
+     >
+      <div
+       class="hero-indicator-progress absolute inset-0 bg-white rounded-full"
+       style="transform: scaleX(0); transform-origin: left center;"
+      >
+      </div>
+     </div>
+    </div>
+   </div>
   </div>
  </section>
 
@@ -442,75 +467,75 @@ import Professionals from "../components/Professionals.astro";
     ...cardItems,
    ].filter(Boolean);
 
-    // --- Set initial hidden state via GSAP (not CSS classes) ---
-    // Use force3D and will-change for better performance
-    gsap.set(heroElements, {
+   // --- Set initial hidden state via GSAP (not CSS classes) ---
+   // Use force3D and will-change for better performance
+   gsap.set(heroElements, {
+    opacity: 0,
+    y: 30,
+    force3D: true,
+    transformOrigin: "center center",
+   });
+
+   // Hero image has separate animation without y transform to preserve rounded borders
+   if (heroImage) {
+    gsap.set(heroImage, {
      opacity: 0,
-     y: 30,
+     scale: 1.02,
      force3D: true,
      transformOrigin: "center center",
     });
+   }
+   gsap.set(nav, {
+    opacity: 0,
+    y: -20,
+    force3D: true,
+    transformOrigin: "center center",
+   });
 
-    // Hero image has separate animation without y transform to preserve rounded borders
-    if (heroImage) {
-     gsap.set(heroImage, {
-      opacity: 0,
-      scale: 1.02,
-      force3D: true,
-      transformOrigin: "center center",
-     });
-    }
-    gsap.set(nav, {
-     opacity: 0,
-     y: -20,
+   // Set will-change on elements that will be animated
+   heroElements.forEach((el) => {
+    if (el) (el as HTMLElement).style.willChange = "transform, opacity";
+   });
+   if (nav) (nav as HTMLElement).style.willChange = "transform, opacity";
+
+   // --- UNIFIED HERO ENTRANCE TIMELINE ---
+   // Fast, smooth, and uniform animations
+   const unifiedEase = "power2.out";
+   const fastEase = "power1.out";
+
+   const tl = gsap.timeline({
+    defaults: {
+     ease: unifiedEase,
      force3D: true,
      transformOrigin: "center center",
-    });
-
-    // Set will-change on elements that will be animated
-    heroElements.forEach((el) => {
-     if (el) (el as HTMLElement).style.willChange = "transform, opacity";
-    });
-    if (nav) (nav as HTMLElement).style.willChange = "transform, opacity";
-
-    // --- UNIFIED HERO ENTRANCE TIMELINE ---
-    // Fast, smooth, and uniform animations
-    const unifiedEase = "power2.out";
-    const fastEase = "power1.out";
-
-    const tl = gsap.timeline({
-     defaults: {
-      ease: unifiedEase,
-      force3D: true,
-      transformOrigin: "center center",
-     },
-     onComplete: () => {
-      // Re-enable glass effect on cards AFTER all animations are done
-      cardItems.forEach((card) => {
-       card.querySelectorAll(".glass-card").forEach((gc) => {
-        gc.classList.add("animated");
-        (gc as HTMLElement).style.willChange = "auto";
-       });
-       if (card.classList.contains("glass-card")) {
-        card.classList.add("animated");
-        card.style.willChange = "auto";
-       }
+    },
+    onComplete: () => {
+     // Re-enable glass effect on cards AFTER all animations are done
+     cardItems.forEach((card) => {
+      card.querySelectorAll(".glass-card").forEach((gc) => {
+       gc.classList.add("animated");
+       (gc as HTMLElement).style.willChange = "auto";
       });
-      if (heroBadge) {
-       heroBadge.classList.add("animated");
-       heroBadge.style.willChange = "auto";
+      if (card.classList.contains("glass-card")) {
+       card.classList.add("animated");
+       card.style.willChange = "auto";
       }
+     });
+     if (heroBadge) {
+      heroBadge.classList.add("animated");
+      heroBadge.style.willChange = "auto";
+     }
 
-      // Remove will-change from all animated elements to free resources
-      heroElements.forEach((el) => {
-       if (el) (el as HTMLElement).style.willChange = "auto";
-      });
-      if (nav) (nav as HTMLElement).style.willChange = "auto";
+     // Remove will-change from all animated elements to free resources
+     heroElements.forEach((el) => {
+      if (el) (el as HTMLElement).style.willChange = "auto";
+     });
+     if (nav) (nav as HTMLElement).style.willChange = "auto";
 
-      // Add completion class for CSS cleanup
-      document.body.classList.add("animation-complete");
-     },
-    });
+     // Add completion class for CSS cleanup
+     document.body.classList.add("animation-complete");
+    },
+   });
 
    // 1. Nav — appears first, very fast
    if (nav) {
@@ -601,8 +626,10 @@ import Professionals from "../components/Professionals.astro";
 
     // Animate "estética" word letter by letter with professional drawing effect
     const esteticaWord = document.getElementById("estetica-word");
-    const esteticaLetters = esteticaWord?.querySelectorAll(".letter") as NodeListOf<HTMLElement>;
-    
+    const esteticaLetters = esteticaWord?.querySelectorAll(
+     ".letter"
+    ) as NodeListOf<HTMLElement>;
+
     if (esteticaWord && esteticaLetters.length > 0) {
      // Set initial state for each letter - hidden with precise clip-path
      esteticaLetters.forEach((letter) => {
@@ -613,7 +640,7 @@ import Professionals from "../components/Professionals.astro";
        force3D: true,
       });
      });
-     
+
      // Professional letter-by-letter animation with uniform timing
      esteticaLetters.forEach((letter, index) => {
       tl.to(
@@ -682,205 +709,230 @@ import Professionals from "../components/Professionals.astro";
     });
    }
 
-    // =========================================
-    //  PREMIUM HERO IMAGE CAROUSEL
-    //  Professional automatic image carousel with smooth transitions
-    // =========================================
-    
-     const heroSlides = document.querySelectorAll(".hero-slide") as NodeListOf<HTMLElement>;
-     const heroIndicators = document.querySelectorAll(".hero-indicator") as NodeListOf<HTMLElement>;
-     const heroIndicatorProgresses = document.querySelectorAll(".hero-indicator-progress") as NodeListOf<HTMLElement>;
-     let currentSlide = 0;
-     let carouselInterval: ReturnType<typeof setInterval> | null = null;
-     let progressTween: gsap.core.Tween | null = null;
-     const slideDuration = 4000; // 4 seconds per slide
-     
-     if (heroSlides.length > 0 && heroIndicators.length > 0 && heroIndicatorProgresses.length > 0) {
-       // Initialize first slide
-       gsap.set(heroSlides[0], { opacity: 1, scale: 1 });
-       
-       // Premium slide transition function
-       const transitionToSlide = (nextIndex: number) => {
-         const currentSlideEl = heroSlides[currentSlide];
-         const nextSlideEl = heroSlides[nextIndex];
-         const currentProgress = heroIndicatorProgresses[currentSlide];
-         const nextProgress = heroIndicatorProgresses[nextIndex];
-         
-         if (!currentSlideEl || !nextSlideEl || !currentProgress || !nextProgress) return;
-         
-         // Kill any ongoing progress animations
-         if (progressTween) {
-           progressTween.kill();
-           progressTween = null;
-         }
-         
-         // Reset current progress bar to 0
-         gsap.set(currentProgress, { scaleX: 0 });
-         
-         // Create master timeline for smooth transition
-         const transitionTl = gsap.timeline({
-           defaults: { ease: "power2.inOut", force3D: true }
-         });
-         
-         // Fade out current slide with slight scale
-         transitionTl.to(currentSlideEl, {
-           opacity: 0,
-           scale: 1.05,
-           duration: 1.2,
-           force3D: true,
-         }, 0);
-         
-         // Fade in next slide with scale animation
-         transitionTl.fromTo(nextSlideEl, {
-           opacity: 0,
-           scale: 0.95,
-         }, {
-           opacity: 1,
-           scale: 1,
-           duration: 1.4,
-           force3D: true,
-         }, 0.2);
-         
-         // Reset next progress bar to 0 before starting animation
-         transitionTl.set(nextProgress, { scaleX: 0 }, 0.2);
-         
-         currentSlide = nextIndex;
-       };
-       
-       // Auto-advance carousel with progress animation
-       const animateProgress = (indicatorIndex: number, onComplete?: () => void) => {
-         const progress = heroIndicatorProgresses[indicatorIndex];
-         if (!progress) return;
-         
-         // Kill any existing progress animation
-         if (progressTween) {
-           progressTween.kill();
-           progressTween = null;
-         }
-         
-         // Reset and start progress animation from 0 to 1
-         gsap.set(progress, { scaleX: 0, transformOrigin: "left center" });
-         progressTween = gsap.to(progress, {
-           scaleX: 1,
-           duration: slideDuration / 1000,
-           ease: "none",
-           force3D: true,
-           onComplete: () => {
-             if (onComplete) {
-               onComplete();
-             }
-           }
-         });
-       };
-       
-       const advanceToNextSlide = () => {
-         const nextIndex = (currentSlide + 1) % heroSlides.length;
-         transitionToSlide(nextIndex);
-         // Start progress animation immediately after transition starts
-         gsap.delayedCall(0.2, () => {
-           animateProgress(nextIndex, advanceToNextSlide);
-         });
-       };
-       
-       const startCarousel = () => {
-         // Clear any existing interval
-         if (carouselInterval) {
-           clearInterval(carouselInterval);
-           carouselInterval = null;
-         }
-         
-         // Start progress animation on current slide, which will auto-advance when complete
-         animateProgress(currentSlide, advanceToNextSlide);
-       };
-       
-       // Pause carousel on hover for better UX
-       if (heroImage) {
-         heroImage.addEventListener("mouseenter", () => {
-           // Pause progress animation
-           if (progressTween) {
-             progressTween.pause();
-           }
-         });
-         
-         heroImage.addEventListener("mouseleave", () => {
-           // Resume progress animation
-           if (progressTween && progressTween.paused()) {
-             progressTween.resume();
-           } else if (!progressTween) {
-             // If no progress animation, restart carousel
-             startCarousel();
-           }
-         });
-       }
-       
-       // Start carousel after initial animations complete
-       tl.call(() => {
-         // Wait a bit after initial animation, then start carousel
-         gsap.delayedCall(2, () => {
-           startCarousel();
-         });
-       });
-       
-       // Click indicators to navigate
-       heroIndicators.forEach((indicator, index) => {
-         indicator.addEventListener("click", () => {
-           if (index !== currentSlide) {
-             // Kill current progress
-             if (progressTween) {
-               progressTween.kill();
-               progressTween = null;
-             }
-             transitionToSlide(index);
-             // Restart carousel after transition
-             gsap.delayedCall(0.2, () => {
-               startCarousel();
-             });
-           }
-         });
-         
-         // Add cursor pointer and hover effect
-         indicator.style.cursor = "pointer";
-         indicator.addEventListener("mouseenter", () => {
-           gsap.to(indicator, {
-             scaleY: 1.5,
-             duration: 0.3,
-             ease: "power2.out",
-           });
-         });
-         indicator.addEventListener("mouseleave", () => {
-           gsap.to(indicator, {
-             scaleY: 1,
-             duration: 0.3,
-             ease: "power2.out",
-           });
-         });
-       });
+   // =========================================
+   //  PREMIUM HERO IMAGE CAROUSEL
+   //  Professional automatic image carousel with smooth transitions
+   // =========================================
+
+   const heroSlides = document.querySelectorAll(
+    ".hero-slide"
+   ) as NodeListOf<HTMLElement>;
+   const heroIndicators = document.querySelectorAll(
+    ".hero-indicator"
+   ) as NodeListOf<HTMLElement>;
+   const heroIndicatorProgresses = document.querySelectorAll(
+    ".hero-indicator-progress"
+   ) as NodeListOf<HTMLElement>;
+   let currentSlide = 0;
+   let carouselInterval: ReturnType<typeof setInterval> | null = null;
+   let progressTween: gsap.core.Tween | null = null;
+   const slideDuration = 4000; // 4 seconds per slide
+
+   if (
+    heroSlides.length > 0 &&
+    heroIndicators.length > 0 &&
+    heroIndicatorProgresses.length > 0
+   ) {
+    // Initialize first slide
+    gsap.set(heroSlides[0], { opacity: 1, scale: 1 });
+
+    // Premium slide transition function
+    const transitionToSlide = (nextIndex: number) => {
+     const currentSlideEl = heroSlides[currentSlide];
+     const nextSlideEl = heroSlides[nextIndex];
+     const currentProgress = heroIndicatorProgresses[currentSlide];
+     const nextProgress = heroIndicatorProgresses[nextIndex];
+
+     if (!currentSlideEl || !nextSlideEl || !currentProgress || !nextProgress)
+      return;
+
+     // Kill any ongoing progress animations
+     if (progressTween) {
+      progressTween.kill();
+      progressTween = null;
      }
 
-    // --- PREMIUM SCROLL ANIMATIONS ---
-    // Multi-layer parallax for depth and sophistication
-    const heroImageImgs = heroImage?.querySelectorAll(".hero-slide img") as NodeListOf<HTMLElement>;
-    if (heroImageImgs && heroImageImgs.length > 0 && heroImage) {
-     // Apply parallax to all slide images
-     heroImageImgs.forEach((img) => {
-      img.style.willChange = "transform";
+     // Reset current progress bar to 0
+     gsap.set(currentProgress, { scaleX: 0 });
 
-      // Primary parallax - smooth and elegant
-      gsap.to(img, {
-       yPercent: 25,
-       scale: 1.1,
-       ease: "none",
+     // Create master timeline for smooth transition
+     const transitionTl = gsap.timeline({
+      defaults: { ease: "power2.inOut", force3D: true },
+     });
+
+     // Fade out current slide with slight scale
+     transitionTl.to(
+      currentSlideEl,
+      {
+       opacity: 0,
+       scale: 1.05,
+       duration: 1.2,
        force3D: true,
-       transformOrigin: "center center",
-       scrollTrigger: {
-        trigger: heroImage,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.2, // Premium smooth scrub
-        invalidateOnRefresh: true,
-       },
+      },
+      0
+     );
+
+     // Fade in next slide with scale animation
+     transitionTl.fromTo(
+      nextSlideEl,
+      {
+       opacity: 0,
+       scale: 0.95,
+      },
+      {
+       opacity: 1,
+       scale: 1,
+       duration: 1.4,
+       force3D: true,
+      },
+      0.2
+     );
+
+     // Reset next progress bar to 0 before starting animation
+     transitionTl.set(nextProgress, { scaleX: 0 }, 0.2);
+
+     currentSlide = nextIndex;
+    };
+
+    // Auto-advance carousel with progress animation
+    const animateProgress = (
+     indicatorIndex: number,
+     onComplete?: () => void
+    ) => {
+     const progress = heroIndicatorProgresses[indicatorIndex];
+     if (!progress) return;
+
+     // Kill any existing progress animation
+     if (progressTween) {
+      progressTween.kill();
+      progressTween = null;
+     }
+
+     // Reset and start progress animation from 0 to 1
+     gsap.set(progress, { scaleX: 0, transformOrigin: "left center" });
+     progressTween = gsap.to(progress, {
+      scaleX: 1,
+      duration: slideDuration / 1000,
+      ease: "none",
+      force3D: true,
+      onComplete: () => {
+       if (onComplete) {
+        onComplete();
+       }
+      },
+     });
+    };
+
+    const advanceToNextSlide = () => {
+     const nextIndex = (currentSlide + 1) % heroSlides.length;
+     transitionToSlide(nextIndex);
+     // Start progress animation immediately after transition starts
+     gsap.delayedCall(0.2, () => {
+      animateProgress(nextIndex, advanceToNextSlide);
+     });
+    };
+
+    const startCarousel = () => {
+     // Clear any existing interval
+     if (carouselInterval) {
+      clearInterval(carouselInterval);
+      carouselInterval = null;
+     }
+
+     // Start progress animation on current slide, which will auto-advance when complete
+     animateProgress(currentSlide, advanceToNextSlide);
+    };
+
+    // Pause carousel on hover for better UX
+    if (heroImage) {
+     heroImage.addEventListener("mouseenter", () => {
+      // Pause progress animation
+      if (progressTween) {
+       progressTween.pause();
+      }
+     });
+
+     heroImage.addEventListener("mouseleave", () => {
+      // Resume progress animation
+      if (progressTween && progressTween.paused()) {
+       progressTween.resume();
+      } else if (!progressTween) {
+       // If no progress animation, restart carousel
+       startCarousel();
+      }
+     });
+    }
+
+    // Start carousel after initial animations complete
+    tl.call(() => {
+     // Wait a bit after initial animation, then start carousel
+     gsap.delayedCall(2, () => {
+      startCarousel();
+     });
+    });
+
+    // Click indicators to navigate
+    heroIndicators.forEach((indicator, index) => {
+     indicator.addEventListener("click", () => {
+      if (index !== currentSlide) {
+       // Kill current progress
+       if (progressTween) {
+        progressTween.kill();
+        progressTween = null;
+       }
+       transitionToSlide(index);
+       // Restart carousel after transition
+       gsap.delayedCall(0.2, () => {
+        startCarousel();
+       });
+      }
+     });
+
+     // Add cursor pointer and hover effect
+     indicator.style.cursor = "pointer";
+     indicator.addEventListener("mouseenter", () => {
+      gsap.to(indicator, {
+       scaleY: 1.5,
+       duration: 0.3,
+       ease: "power2.out",
       });
      });
+     indicator.addEventListener("mouseleave", () => {
+      gsap.to(indicator, {
+       scaleY: 1,
+       duration: 0.3,
+       ease: "power2.out",
+      });
+     });
+    });
+   }
+
+   // --- PREMIUM SCROLL ANIMATIONS ---
+   // Multi-layer parallax for depth and sophistication
+   const heroImageImgs = heroImage?.querySelectorAll(
+    ".hero-slide img"
+   ) as NodeListOf<HTMLElement>;
+   if (heroImageImgs && heroImageImgs.length > 0 && heroImage) {
+    // Apply parallax to all slide images
+    heroImageImgs.forEach((img) => {
+     img.style.willChange = "transform";
+
+     // Primary parallax - smooth and elegant
+     gsap.to(img, {
+      yPercent: 25,
+      scale: 1.1,
+      ease: "none",
+      force3D: true,
+      transformOrigin: "center center",
+      scrollTrigger: {
+       trigger: heroImage,
+       start: "top top",
+       end: "bottom top",
+       scrub: 1.2, // Premium smooth scrub
+       invalidateOnRefresh: true,
+      },
+     });
+    });
 
     // Secondary parallax on badge circle for depth
     if (heroBadgeCircle) {
