@@ -1,26 +1,32 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 
 interface Props {
-  title?: string;
+ title?: string;
 }
 
-const { title = 'DG Dermoestética - Dermatología y Estética' } = Astro.props;
+const { title = "DG Dermoestética - Dermatología y Estética" } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DG Dermoestética - Más de 30 años al servicio de la salud. Dermatología clínica, estética y láser." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <title>{title}</title>
-  </head>
-  <body class="">
-    <slot />
-  </body>
+ <head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+   name="description"
+   content="DG Dermoestética - Más de 30 años al servicio de la salud. Dermatología clínica, estética y láser."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+   rel="stylesheet"
+  />
+  <title>{title}</title>
+ </head>
+ <body class="">
+  <slot />
+ </body>
 </html>
