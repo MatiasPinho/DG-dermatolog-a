@@ -15,7 +15,9 @@ import ServiceCard from "../components/ServiceCard.astro";
 <Layout>
  <section class="w-full flex flex-col items-center py-24 px-4 md:px-6">
   <div class="max-w-7xl mx-auto w-full">
-   <div class="flex flex-col items-center gap-y-6 servicios-heading">
+   <div
+    class="flex flex-col items-center gap-y-6 mb-12 md:mb-20 servicios-heading"
+   >
     <h1
      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight servicios-title"
     >
@@ -25,49 +27,39 @@ import ServiceCard from "../components/ServiceCard.astro";
      Cada plan es personalizado y nuestra atención incluye
     </p>
    </div>
-   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 servicios-grid">
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Revisión médica completa"
-    description={
-     "Evaluación exhaustiva de la piel, pelo y uñas para detectar afecciones médicas y estéticas."
-    }
-   />
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Dermatoscopia digital"
-    description={
-     "Diagnóstico precoz de lesiones cutáneas mediante tecnología de imagen avanzada."
-    }
-   />
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Análisis de tipo de piel"
-    description={
-     "Identificación precisa del tipo de piel para rutinas personalizadas."
-    }
-   />
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Limpiezas faciales y corporales"
-    description={
-     "Tratamientos profundos para eliminar impurezas y mejorar la salud de la piel."
-    }
-   />
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Tratamiento de acné"
-    description={
-     "Soluciones efectivas para el control del acné y la reducción de cicatrices."
-    }
-   />
-   <ServiceCard
-    img="/woman-cosmetologist-having-beauty-treatment.webp"
-    title="Rutina de cuidado de la piel"
-    description={
-     "Asesoramiento personalizado para crear rutinas de cuidado adaptadas a cada tipo de piel."
-    }
-   />
+   <section
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 servicios-grid mt-0"
+   >
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Revisión médica completa"
+     description={"Evaluación exhaustiva de la piel, pelo y uñas para detectar afecciones médicas y estéticas."}
+    />
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Dermatoscopia digital"
+     description={"Diagnóstico precoz de lesiones cutáneas mediante tecnología de imagen avanzada."}
+    />
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Análisis de tipo de piel"
+     description={"Identificación precisa del tipo de piel para rutinas personalizadas."}
+    />
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Limpiezas faciales y corporales"
+     description={"Tratamientos profundos para eliminar impurezas y mejorar la salud de la piel."}
+    />
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Tratamiento de acné"
+     description={"Soluciones efectivas para el control del acné y la reducción de cicatrices."}
+    />
+    <ServiceCard
+     img="/woman-cosmetologist-having-beauty-treatment.webp"
+     title="Rutina de cuidado de la piel"
+     description={"Asesoramiento personalizado para crear rutinas de cuidado adaptadas a cada tipo de piel."}
+    />
    </section>
   </div>
  </section>
@@ -87,13 +79,9 @@ import ServiceCard from "../components/ServiceCard.astro";
    const description = document.querySelector(
     ".servicios-description"
    ) as HTMLElement | null;
-   const grid = document.querySelector(
-    ".servicios-grid"
-   ) as HTMLElement | null;
+   const grid = document.querySelector(".servicios-grid") as HTMLElement | null;
 
-   const cards = gsap.utils.toArray(
-    ".servicios-grid > *"
-   ) as HTMLElement[];
+   const cards = gsap.utils.toArray(".servicios-grid > *") as HTMLElement[];
 
    // Entrada del título
    if (heading && title) {
@@ -172,6 +160,13 @@ import ServiceCard from "../components/ServiceCard.astro";
  </script>
 
  <style>
+  /* Espacio entre heading y grid en desktop */
+  @media (min-width: 768px) {
+   .servicios-heading {
+    margin-bottom: 5rem !important; /* 80px = mb-20 */
+   }
+  }
+
   /* Prevenir desborde horizontal en mobile - NO afecta desktop */
   @media (max-width: 768px) {
    section {
@@ -211,4 +206,3 @@ import ServiceCard from "../components/ServiceCard.astro";
   }
  </style>
 </Layout>
-

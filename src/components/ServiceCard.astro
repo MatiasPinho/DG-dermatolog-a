@@ -17,9 +17,9 @@ const { title, linkText = "Ver mas", description, img } = Astro.props;
  <header class="flex flex-col gap-y-8">
   <h1 class="text-primary text-2xl font-bold">{title}</h1>
   <content class="w-full h-56 overflow-hidden rounded-xl">
-    <img src={img} alt={title} class="w-full h-full object-cover" />
-   </content>
-  <p class=" text-sm">{description}</p>
+   <img src={img} alt={title} class="w-full h-full object-cover" />
+  </content>
+  <p class="text-sm">{description}</p>
  </header>
  <section class="flex gap-x-2 justify-end absolute top-[55%] left-8 z-10">
   <button class="glass-nav flex items-center gap-1 px-2 py-2 rounded-full">
@@ -37,14 +37,11 @@ const { title, linkText = "Ver mas", description, img } = Astro.props;
    </p>
   </button>
  </section>
- 
+
  <footer class="flex justify-end gap-x-2 w-full items-end">
-  <a
-   href="#"
-   class="flex items-center justify-end gap-x-2 p-2"
-  >
+  <a href="#" class="flex items-center justify-end gap-x-2 p-2">
    <p class="text-primary text-sm">{linkText}</p>
-   <ArrowRight size={16}  class="text-primary" />
+   <ArrowRight size={16} class="text-primary" />
   </a>
  </footer>
 </article>

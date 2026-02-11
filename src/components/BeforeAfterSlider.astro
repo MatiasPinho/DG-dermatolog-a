@@ -67,9 +67,7 @@ const beforeAfterImages = [
         />
        </div>
 
-      <div
-       class="before-image-container absolute inset-0 overflow-hidden"
-      >
+       <div class="before-image-container absolute inset-0 overflow-hidden">
         <img
          src={item.before}
          alt={`${item.title} - Antes`}
@@ -79,10 +77,10 @@ const beforeAfterImages = [
         />
        </div>
 
-      <div
-       class="slider-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
-       style="left: 50%; transform: translateX(-50%);"
-      >
+       <div
+        class="slider-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
+        style="left: 50%; transform: translateX(-50%);"
+       >
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
          <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -157,28 +155,28 @@ const beforeAfterImages = [
    // Actualizar posición del handle
    handle.style.left = `${percentage}%`;
 
-  // Crossfade entre antes y después (0 = solo antes, 100 = solo después)
-  const opacity = 1 - percentage / 100;
-  beforeImage.style.opacity = `${Math.max(0, Math.min(1, opacity))}`;
+   // Crossfade entre antes y después (0 = solo antes, 100 = solo después)
+   const opacity = 1 - percentage / 100;
+   beforeImage.style.opacity = `${Math.max(0, Math.min(1, opacity))}`;
   };
 
   // Agregar event listeners
- slider.addEventListener("mousemove", (e) => {
-  const sliderRect = slider.getBoundingClientRect();
-  const x = (e as MouseEvent).clientX - sliderRect.left;
-  setTranslate(x);
- });
-
- slider.addEventListener(
-  "touchmove",
-  (e) => {
-   e.preventDefault();
+  slider.addEventListener("mousemove", (e) => {
    const sliderRect = slider.getBoundingClientRect();
-   const x = (e as TouchEvent).touches[0].clientX - sliderRect.left;
+   const x = (e as MouseEvent).clientX - sliderRect.left;
    setTranslate(x);
-  },
-  { passive: false }
- );
+  });
+
+  slider.addEventListener(
+   "touchmove",
+   (e) => {
+    e.preventDefault();
+    const sliderRect = slider.getBoundingClientRect();
+    const x = (e as TouchEvent).touches[0].clientX - sliderRect.left;
+    setTranslate(x);
+   },
+   { passive: false }
+  );
 
   // Resetear al salir del slider (opcional - puedes comentar esto si quieres que mantenga la posición)
   slider.addEventListener("mouseleave", () => {
@@ -214,14 +212,14 @@ const beforeAfterImages = [
  }
 
  .before-image-container {
- transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
  }
 
  .before-image-container img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
  }
 
  .method-badge {
