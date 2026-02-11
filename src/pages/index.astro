@@ -1197,9 +1197,17 @@ import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
     });
    }
   });
- </script>
+</script>
 
- <style is:global>
+<style>
+ .glass-nav-blur {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+ }
+</style>
+
+<style is:global>
   /* Ajustes responsive específicos para la hero en mobile
      (no afectan desktop gracias a la media query) */
   @media (max-width: 768px) {
