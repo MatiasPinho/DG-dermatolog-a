@@ -96,19 +96,19 @@
 
 .glass-card h3,
 .glass-card .text-text-dark {
-  color: #0f172a;
-  font-weight: 600;
+ color: #0f172a;
+ font-weight: 600;
 }
 
 .glass-card p,
 .glass-card .text-text-muted {
-  color: #475569;
+ color: #475569;
 }
 
 .glass-card .text-2xl,
 .glass-card .text-xl {
-  color: #0f172a;
-  font-weight: 700;
+ color: #0f172a;
+ font-weight: 700;
 }
 
 /* Over-image cards */
@@ -131,25 +131,25 @@
 .glass-card-over-image .text-text-dark,
 .glass-card-over-image .text-2xl,
 .glass-card-over-image .text-xl {
-  color: #ffffff;
-  font-weight: 600;
+ color: #ffffff;
+ font-weight: 600;
 }
 
 .glass-card-over-image p,
 .glass-card-over-image .text-text-muted {
-  color: rgba(255, 255, 255, 0.9);
+ color: rgba(255, 255, 255, 0.9);
 }
 
 .glass-card-over-image a {
-  color: #ffffff;
+ color: #ffffff;
 }
 
 .glass-card-over-image a:hover {
-  color: rgba(255, 255, 255, 0.8);
+ color: rgba(255, 255, 255, 0.8);
 }
 
 .glass-card-over-image svg {
-  stroke: #ffffff;
+ stroke: #ffffff;
 }
 
 /* Badge circle glass effect - optimized for animation */
