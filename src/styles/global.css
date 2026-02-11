@@ -1,43 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1a1a6e;
-  --color-primary-light: #3b3ba8;
-  --color-accent: #8b7fc8;
-  --color-accent-light: #b8a9e0;
-  --color-bg-hero: #f5f3ff;
-  --color-bg-purple: #e8e0f5;
-  --color-header-purple: #a89bc8;
-  --color-text-dark: #1a1a2e;
-  --color-text-muted: #6b7280;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
+ --color-primary: #1a1a6e;
+ --color-primary-light: #3b3ba8;
+ --color-accent: #8b7fc8;
+ --color-accent-light: #b8a9e0;
+ --color-bg-hero: #f5f3ff;
+ --color-bg-purple: #e8e0f5;
+ --color-header-purple: #a89bc8;
+ --color-text-dark: #1a1a2e;
+ --color-text-muted: #6b7280;
+ --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+ --font-serif: "Instrument Serif", Georgia, serif;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+ html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ }
 
-  body {
-    font-family: var(--font-sans);
-    color: var(--color-text-dark);
-    overflow-x: hidden;
-    background-color: #FCF8F4;
-    /* Smooth scrolling and rendering */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
+ body {
+  font-family: var(--font-sans);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+  background-color: #fcf8f4;
+  /* Smooth scrolling and rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+ }
 
-  /* Force images to decode async and optimize for GPU */
-  img {
-    content-visibility: auto;
-    transform: translateZ(0);
-    will-change: transform;
-  }
+ /* Force images to decode async and optimize for GPU */
+ img {
+  content-visibility: auto;
+  transform: translateZ(0);
+  will-change: transform;
+ }
 }
 
 /* ===========================================
@@ -51,47 +51,46 @@
 
 /* Navbar is static (not GSAP animated transforms), ok to keep blur */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  /* GPU acceleration for static elements too */
-  transform: translateZ(0);
-  will-change: auto;
+ background: rgba(255, 255, 255, 0.7);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border: 1px solid rgba(255, 255, 255, 0.4);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+ /* GPU acceleration for static elements too */
+ transform: translateZ(0);
+ will-change: auto;
 }
 
 /* Cards in hero: NO backdrop-filter to avoid stuttering during GSAP animation.
    We fake the glass look with a solid semi-transparent white instead. */
 .glass-card {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  /* Premium transitions */
-  transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* GPU acceleration for animated cards */
-  transform: translateZ(0);
-  contain: layout style paint;
-  /* Premium cursor */
-  cursor: pointer;
+ background: rgba(255, 255, 255, 0.65);
+ border: 1px solid rgba(255, 255, 255, 0.5);
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+ /* Premium transitions */
+ transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ /* GPU acceleration for animated cards */
+ transform: translateZ(0);
+ contain: layout style paint;
+ /* Premium cursor */
+ cursor: pointer;
 }
 
 .glass-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
-              0 0 0 1px rgba(255, 255, 255, 0.6);
-  transform: translateY(-4px) translateZ(0);
-  transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.6);
+ transform: translateY(-4px) translateZ(0);
+ transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* After GSAP entrance is done, hero cards get their glass effect back */
 .glass-card.animated {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.35);
-  /* Remove will-change after animation to free resources */
-  will-change: auto;
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ background: rgba(255, 255, 255, 0.35);
+ /* Remove will-change after animation to free resources */
+ will-change: auto;
 }
 
 .glass-card h3,
@@ -113,18 +112,18 @@
 
 /* Over-image cards */
 .glass-card-over-image {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #ffffff;
+ background: rgba(255, 255, 255, 0.2);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border: 1px solid rgba(255, 255, 255, 0.35);
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+ transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ color: #ffffff;
 }
 
 .glass-card-over-image:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+ transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-over-image h3,
@@ -154,15 +153,15 @@
 
 /* Badge circle glass effect - optimized for animation */
 .glass-circle {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  /* GPU acceleration */
-  transform: translateZ(0);
-  will-change: transform;
-  contain: layout style paint;
+ background: rgba(255, 255, 255, 0.25);
+ backdrop-filter: blur(16px);
+ -webkit-backdrop-filter: blur(16px);
+ border: 1px solid rgba(255, 255, 255, 0.35);
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+ /* GPU acceleration */
+ transform: translateZ(0);
+ will-change: transform;
+ contain: layout style paint;
 }
 
 /* Performance optimizations for animated elements */
@@ -174,85 +173,85 @@
 #hero-sub,
 #hero-cta,
 #hero-badge-circle {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  /* Only set will-change dynamically via JS when animating */
+ transform: translateZ(0);
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+ /* Only set will-change dynamically via JS when animating */
 }
 
 /* Premium text reveal effect */
 #hero-heading {
-  clip-path: inset(0 0 0 0);
-  transition: clip-path 0.01s;
+ clip-path: inset(0 0 0 0);
+ transition: clip-path 0.01s;
 }
 
 /* Premium button hover effects */
 #hero-cta,
 a[class*="bg-primary"] {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ position: relative;
+ overflow: hidden;
+ transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #hero-cta::before,
 a[class*="bg-primary"]::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 0;
+ height: 0;
+ border-radius: 50%;
+ background: rgba(255, 255, 255, 0.2);
+ transform: translate(-50%, -50%);
+ transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #hero-cta:hover::before,
 a[class*="bg-primary"]:hover::before {
-  width: 300px;
-  height: 300px;
+ width: 300px;
+ height: 300px;
 }
 
 /* Optimize images for GPU */
 #hero-image img {
-  transform: translateZ(0);
-  will-change: transform;
-  /* Smooth image rendering */
-  image-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+ transform: translateZ(0);
+ will-change: transform;
+ /* Smooth image rendering */
+ image-rendering: auto;
+ -webkit-font-smoothing: antialiased;
 }
 
 /* Optimize card items with premium effects */
 .card-item {
-  contain: layout style paint;
-  transform: translateZ(0);
-  /* Premium smooth transitions */
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Premium hover state */
-  will-change: transform;
+ contain: layout style paint;
+ transform: translateZ(0);
+ /* Premium smooth transitions */
+ transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ /* Premium hover state */
+ will-change: transform;
 }
 
 .card-item:hover {
-  transform: translateY(-8px) translateZ(0);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+ transform: translateY(-8px) translateZ(0);
+ box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
 }
 
 /* Remove will-change after animations complete to free resources */
 .animation-complete {
-  will-change: auto;
+ will-change: auto;
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+ *,
+ *::before,
+ *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+ }
 }
