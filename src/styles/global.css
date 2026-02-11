@@ -52,13 +52,20 @@
 /* Navbar is static (not GSAP animated transforms), ok to keep blur */
 .glass-nav {
  background: rgba(255, 255, 255, 0.7);
- backdrop-filter: blur(12px);
- -webkit-backdrop-filter: blur(12px);
  border: 1px solid rgba(255, 255, 255, 0.4);
  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
  /* GPU acceleration for static elements too */
  transform: translateZ(0);
  will-change: auto;
+}
+
+@layer utilities {
+ /* Clase explícita para el blur del navbar,
+    para que Tailwind nunca lo purgue ni lo toque */
+ .glass-nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+ }
 }
 
 /* Cards in hero: NO backdrop-filter to avoid stuttering during GSAP animation.
