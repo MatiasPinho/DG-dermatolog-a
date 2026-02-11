@@ -15,18 +15,57 @@ import ServiceCard from "../components/ServiceCard.astro";
 <Layout>
  <section class="w-full flex flex-col items-center pt-20">
   <div class="flex flex-col items-center gap-y-6">
+ <section class="w-full flex flex-col items-center pt-20">
+  <div class="flex flex-col items-center gap-y-6">
    <h1 class="text-6xl font-bold text-center">
     Planes de tratamiento <br />Personalizados
    </h1>
    <p class="text-lg">Cada plan es personalizado y nuestra atención incluye</p>
   </div>
   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-   <ServiceCard title="Revisión médica completa" icon={HeartHandshake} />
-   <ServiceCard title="Dermatoscopia digital" icon={Syringe} />
-   <ServiceCard title="Análisis de tipo de piel" icon={Video} />
-   <ServiceCard title="Limpiezas faciales y corporales" icon={HandHeart} />
-   <ServiceCard title="Tratamiento de acné" icon={HeartPulse} />
-   <ServiceCard title="Rutina de cuidado de la piel" icon={Droplets} />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Revisión médica completa"
+    description={
+     "Evaluación exhaustiva de la piel, pelo y uñas para detectar afecciones médicas y estéticas."
+    }
+   />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Dermatoscopia digital"
+    description={
+     "Diagnóstico precoz de lesiones cutáneas mediante tecnología de imagen avanzada."
+    }
+   />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Análisis de tipo de piel"
+    description={
+     "Identificación precisa del tipo de piel para rutinas personalizadas."
+    }
+   />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Limpiezas faciales y corporales"
+    description={
+     "Tratamientos profundos para eliminar impurezas y mejorar la salud de la piel."
+    }
+   />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Tratamiento de acné"
+    description={
+     "Soluciones efectivas para el control del acné y la reducción de cicatrices."
+    }
+   />
+   <ServiceCard
+    img="/woman-cosmetologist-having-beauty-treatment.webp"
+    title="Rutina de cuidado de la piel"
+    description={
+     "Asesoramiento personalizado para crear rutinas de cuidado adaptadas a cada tipo de piel."
+    }
+   />
   </section>
  </section>
 </Layout>
+
