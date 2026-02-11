@@ -2,12 +2,12 @@
 
 @theme {
  --color-primary: #944d95;
- --color-primary-light: #3b3ba8;
- --color-accent: #8b7fc8;
- --color-accent-light: #b8a9e0;
- --color-bg-hero: #f5f3ff;
- --color-bg-purple: #e8e0f5;
- --color-header-purple: #a89bc8;
+ --color-primary-light: #b87ab9;
+ --color-accent: #c99aca;
+ --color-accent-light: #e5c0e6;
+ --color-bg-hero: #fdf2fd;
+ --color-bg-purple: #f5e6f6;
+ --color-header-purple: #d4a5d5;
  --color-text-dark: #1a1a2e;
  --color-text-muted: #6b7280;
  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;

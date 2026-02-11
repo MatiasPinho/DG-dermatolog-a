@@ -13,16 +13,16 @@ import ServiceCard from "../components/ServiceCard.astro";
 ---
 
 <Layout>
- <section class="w-full flex flex-col items-center pt-20">
-  <div class="flex flex-col items-center gap-y-6">
- <section class="w-full flex flex-col items-center pt-20">
-  <div class="flex flex-col items-center gap-y-6">
-   <h1 class="text-6xl font-bold text-center">
+ <section class="w-full flex flex-col items-center py-24">
+  <div class="flex flex-col items-center gap-y-6 servicios-heading">
+   <h1 class="text-6xl font-bold text-center servicios-title">
     Planes de tratamiento <br />Personalizados
    </h1>
-   <p class="text-lg">Cada plan es personalizado y nuestra atención incluye</p>
+   <p class="text-lg servicios-description">
+    Cada plan es personalizado y nuestra atención incluye
+   </p>
   </div>
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 servicios-grid">
    <ServiceCard
     img="/woman-cosmetologist-having-beauty-treatment.webp"
     title="Revisión médica completa"
@@ -67,5 +67,104 @@ import ServiceCard from "../components/ServiceCard.astro";
    />
   </section>
  </section>
+
+ <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  requestAnimationFrame(() => {
+   const heading = document.querySelector(
+    ".servicios-heading"
+   ) as HTMLElement | null;
+   const title = document.querySelector(
+    ".servicios-title"
+   ) as HTMLElement | null;
+   const description = document.querySelector(
+    ".servicios-description"
+   ) as HTMLElement | null;
+   const grid = document.querySelector(
+    ".servicios-grid"
+   ) as HTMLElement | null;
+
+   const cards = gsap.utils.toArray(
+    ".servicios-grid > *"
+   ) as HTMLElement[];
+
+   // Entrada del título
+   if (heading && title) {
+    gsap.set(title, {
+     opacity: 0,
+     y: 60,
+     scale: 0.9,
+     clipPath: "inset(0 0 100% 0)",
+     transformOrigin: "center center",
+     force3D: true,
+    });
+
+    gsap.to(title, {
+     opacity: 1,
+     y: 0,
+     scale: 1,
+     clipPath: "inset(0 0 0% 0)",
+     duration: 1.2,
+     ease: "expo.out",
+     scrollTrigger: {
+      trigger: heading,
+      start: "top 80%",
+      toggleActions: "play none none none",
+     },
+    });
+   }
+
+   // Entrada de la descripción
+   if (heading && description) {
+    gsap.set(description, {
+     opacity: 0,
+     y: 25,
+     filter: "blur(10px)",
+     force3D: true,
+    });
+
+    gsap.to(description, {
+     opacity: 1,
+     y: 0,
+     filter: "blur(0px)",
+     duration: 0.9,
+     ease: "power2.out",
+     scrollTrigger: {
+      trigger: heading,
+      start: "top 80%",
+      toggleActions: "play none none none",
+     },
+    });
+   }
+
+   // Entrada de las cards con stagger
+   if (grid && cards.length > 0) {
+    gsap.set(cards, {
+     opacity: 0,
+     y: 60,
+     scale: 0.96,
+     transformOrigin: "center center",
+     force3D: true,
+    });
+
+    gsap.to(cards, {
+     opacity: 1,
+     y: 0,
+     scale: 1,
+     duration: 1.0,
+     ease: "power3.out",
+     stagger: 0.12,
+     scrollTrigger: {
+      trigger: grid,
+      start: "top 80%",
+      toggleActions: "play none none none",
+     },
+    });
+   }
+  });
+ </script>
 </Layout>
 

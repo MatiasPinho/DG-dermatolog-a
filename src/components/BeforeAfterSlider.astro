@@ -2,19 +2,16 @@
 // Componente de slider antes/después
 const beforeAfterImages = [
  {
-  before:
-   "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
-  after: "/woman-cosmetologist-having-beauty-treatment.webp",
+  before: "/image-after.webp",
+  after: "/image-before.webp",
   title: "Tratamiento Facial",
   description:
    "Resultados visibles después de nuestro tratamiento especializado",
   methods: ["Láser CO2", "Peeling Químico", "Toxina Botulínica"],
  },
  {
-  before:
-   "/client-beautician-s-appointment-consultation-face-shaping-preparation-upcoming-procedures-visual-examination-problem-areas.webp",
-  after:
-   "/woman-checking-her-skin-mirror-after-receiving-cosmetic-treatment.webp",
+  before: "/image2-after.webp",
+  after: "/image2-before.webp",
   title: "Rejuvenecimiento",
   description: "Transformación completa con tecnología de última generación",
   methods: ["Plasma Rico en Plaquetas", "Hilos Tensores", "Rellenos Dérmicos"],
@@ -70,10 +67,9 @@ const beforeAfterImages = [
         />
        </div>
 
-       <div
-        class="before-image-container absolute inset-0 overflow-hidden"
-        style="clip-path: inset(0 50% 0 0);"
-       >
+      <div
+       class="before-image-container absolute inset-0 overflow-hidden"
+      >
         <img
          src={item.before}
          alt={`${item.title} - Antes`}
@@ -83,10 +79,10 @@ const beforeAfterImages = [
         />
        </div>
 
-       <div
-        class="slider-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
-        style="left: 50%; transform: translateX(-50%);"
-       >
+      <div
+       class="slider-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
+       style="left: 50%; transform: translateX(-50%);"
+      >
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
          <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +138,7 @@ const beforeAfterImages = [
 </section>
 
 <script>
- // Inicializar sliders de antes/después con efecto hover
+ // Inicializar sliders de antes/después con efecto hover (crossfade suave)
  const sliders = document.querySelectorAll(".before-after-slider");
 
  sliders.forEach((slider) => {
@@ -161,28 +157,28 @@ const beforeAfterImages = [
    // Actualizar posición del handle
    handle.style.left = `${percentage}%`;
 
-   // Actualizar clip-path de la imagen antes
-   beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-  };
-
-  // Evento mousemove para seguir el cursor
-  const handleMouseMove = (e: MouseEvent) => {
-   const sliderRect = slider.getBoundingClientRect();
-   const x = e.clientX - sliderRect.left;
-   setTranslate(x);
-  };
-
-  // Evento touchmove para dispositivos táctiles
-  const handleTouchMove = (e: TouchEvent) => {
-   e.preventDefault();
-   const sliderRect = slider.getBoundingClientRect();
-   const x = e.touches[0].clientX - sliderRect.left;
-   setTranslate(x);
+  // Crossfade entre antes y después (0 = solo antes, 100 = solo después)
+  const opacity = 1 - percentage / 100;
+  beforeImage.style.opacity = `${Math.max(0, Math.min(1, opacity))}`;
   };
 
   // Agregar event listeners
-  slider.addEventListener("mousemove", handleMouseMove);
-  slider.addEventListener("touchmove", handleTouchMove, { passive: false });
+ slider.addEventListener("mousemove", (e) => {
+  const sliderRect = slider.getBoundingClientRect();
+  const x = (e as MouseEvent).clientX - sliderRect.left;
+  setTranslate(x);
+ });
+
+ slider.addEventListener(
+  "touchmove",
+  (e) => {
+   e.preventDefault();
+   const sliderRect = slider.getBoundingClientRect();
+   const x = (e as TouchEvent).touches[0].clientX - sliderRect.left;
+   setTranslate(x);
+  },
+  { passive: false }
+ );
 
   // Resetear al salir del slider (opcional - puedes comentar esto si quieres que mantenga la posición)
   slider.addEventListener("mouseleave", () => {
@@ -191,7 +187,9 @@ const beforeAfterImages = [
   });
 
   // Inicializar en el centro
-  setTranslate(slider.getBoundingClientRect().width / 2);
+  // Lo dejamos levemente hacia la derecha para que se vea casi todo el "Después"
+  const rect = slider.getBoundingClientRect();
+  setTranslate(rect.width * 0.9);
  });
 </script>
 
@@ -216,14 +214,14 @@ const beforeAfterImages = [
  }
 
  .before-image-container {
-  transition: clip-path 0.05s ease-out;
+ transition: opacity 0.1s ease-out;
  }
 
  .before-image-container img {
-  width: calc(100% * 2);
-  height: 100%;
-  object-fit: cover;
-  object-position: left center;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ object-position: center;
  }
 
  .method-badge {
