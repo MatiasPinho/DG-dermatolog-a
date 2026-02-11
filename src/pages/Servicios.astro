@@ -19,9 +19,15 @@ import ServiceCard from "../components/ServiceCard.astro";
     class="flex flex-col items-center gap-y-6 mb-12 md:mb-20 servicios-heading"
    >
     <h1
-     class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight servicios-title"
+     class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-center leading-[0.95] servicios-title"
+     style="font-family: var(--font-sans);"
     >
-     Planes de tratamiento <br />Personalizados
+     Planes de tratamiento <br />
+     <em
+      class="not-italic font-semibold text-primary"
+      style="font-family: var(--font-serif); font-style: italic;"
+     >Personalizados</em
+     >
     </h1>
     <p class="text-lg servicios-description text-center">
      Cada plan es personalizado y nuestra atención incluye
