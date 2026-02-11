@@ -185,6 +185,27 @@
  transition: clip-path 0.01s;
 }
 
+/* Letter-by-letter animation for "estética" - pixel perfect typography */
+#estetica-word {
+ display: inline;
+}
+
+#estetica-word .letter {
+ display: inline;
+ position: relative;
+ will-change: clip-path;
+ transform-origin: left center;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+ /* Preserve exact typography spacing */
+ letter-spacing: inherit;
+ font-family: inherit;
+ font-size: inherit;
+ font-weight: inherit;
+ font-style: inherit;
+ line-height: inherit;
+}
+
 /* Premium button hover effects */
 #hero-cta,
 a[class*="bg-primary"] {
@@ -242,6 +263,43 @@ a[class*="bg-primary"]:hover::before {
 /* Remove will-change after animations complete to free resources */
 .animation-complete {
  will-change: auto;
+}
+
+/* Hero carousel indicators with glassmorphism */
+.glass-indicator {
+ background: rgba(255, 255, 255, 0.2);
+ backdrop-filter: blur(8px);
+ -webkit-backdrop-filter: blur(8px);
+ border: 1px solid rgba(255, 255, 255, 0.3);
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+
+.hero-indicator {
+ position: relative;
+ overflow: hidden;
+}
+
+.hero-indicator:hover {
+ border-color: rgba(255, 255, 255, 0.5);
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-indicator-progress {
+ will-change: transform;
+ transform-origin: left center;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+ background: rgba(255, 255, 255, 0.9);
+ backdrop-filter: blur(4px);
+ -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-slide {
+ will-change: opacity, transform;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
 }
 
 /* Respect reduced motion */
